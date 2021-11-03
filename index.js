@@ -20,6 +20,11 @@ tokens.forEach((token) => {
         points = points + getPointsByAttribute(attribute);
     });
 
+    // Extra points for Crolex special type
+    if (unirex.name.toString().includes("Crolex")) points = points + 150
+    // Extra points for Statue special type
+    if (unirex.name.toString().includes("Statue")) points = points + 80
+
     var unirexValue = {
         "name": unirex.name,
         "token": unirex.token,
@@ -56,7 +61,6 @@ function getPointsByAttribute(attribute) {
         // console.log(trait_type + ": " + value + " ==> ");
         // console.log(rarityAttributes[trait_type][value]["percentage"]+ "% (Coeff: " + coeff + ")");
         var pts = (100 - rarityAttributes[trait_type][value]["percentage"]) * coeff;
-
         return pts;
     } else if (trait_type == "Jewelries") {
         var jewelries = attribute.value.split("/"); // length
