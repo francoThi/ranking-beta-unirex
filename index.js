@@ -1,4 +1,3 @@
-const { Console } = require('console');
 const fs = require('fs');
 
 let rawdataUnirexes = fs.readFileSync("./data/metadata_V2.5_with_arweave_links.json");
